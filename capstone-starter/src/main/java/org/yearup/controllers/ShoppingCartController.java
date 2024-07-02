@@ -17,8 +17,8 @@ import java.security.Principal;
 // convert this class to a REST controller
 // only logged in users should have access to these actions
 @RestController
-@RequestMapping("/cart")
 @CrossOrigin
+@PreAuthorize("isAuthenticated()")
 public class ShoppingCartController
 {
     // a shopping cart requires
@@ -37,9 +37,8 @@ public class ShoppingCartController
     }
 
     // each method in this controller requires a Principal object as a parameter
-    @GetMapping("/cart/{userId}/products")
-    @PreAuthorize("hasRole('USER', 'ADMIN')")
-    public ShoppingCart getCart(Principal principal, ShoppingCartItem shoppingCartItem)
+    @GetMapping("cart")
+    public ShoppingCart getCart(Principal principal)
     {
         try
         {
@@ -50,7 +49,7 @@ public class ShoppingCartController
             int userId = user.getId();
 
             // use the shoppingcartDao to get all items in the cart and return the cart
-            return shoppingCartDao.getByUserId(userId, shoppingCartItem.getProductId(), shoppingCartItem.getQuantity());
+            return shoppingCartDao.getByUserId(userId);
         }
         catch(Exception e)
         {
@@ -61,7 +60,6 @@ public class ShoppingCartController
     // add a POST method to add a product to the cart - the url should be
     // https://localhost:8080/cart/products/15 (15 is the productId to be added)
     @PostMapping("/cart/products/{productId}")
-    @PreAuthorize("hasRole('USER', 'ADMIN')")
     public void addToCart(@PathVariable int userId, ShoppingCartItem shoppingCartItem)
     {
         shoppingCartDao.addProductToCart(userId, shoppingCartItem.getProductId());
@@ -74,7 +72,6 @@ public class ShoppingCartController
     // https://localhost:8080/cart/products/15 (15 is the productId to be updated)
     // the BODY should be a ShoppingCartItem - quantity is the only value that will be updated
     @PutMapping("/cart/products/{productId}")
-    @PreAuthorize("hasRole('USER','Admin')")
     public void updateCart(@PathVariable int userId, ShoppingCartItem shoppingCartItem){
         shoppingCartDao.updateProductInCart(userId, shoppingCartItem.getProductId(), shoppingCartItem.getQuantity());
     }
@@ -84,7 +81,6 @@ public class ShoppingCartController
     // https://localhost:8080/cart
     @DeleteMapping({"userId"})
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @PreAuthorize("hasRole('USER', 'ADMIN')")
     public void deleteCart(@PathVariable int userId)
     {
         shoppingCartDao.DeleteCart(userId);

@@ -2,6 +2,7 @@ package org.yearup.data.mysql;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.yearup.data.ProductDao;
 import org.yearup.data.ShoppingCartDao;
 import org.yearup.models.Product;
 import org.yearup.models.ShoppingCart;
@@ -15,15 +16,17 @@ import java.sql.SQLException;
 @Component
 public class MySqlShoppingCartDao extends MySqlDaoBase implements ShoppingCartDao {
     private DataSource dataSource;
+    ProductDao productDao;
 
     @Autowired
-    public MySqlShoppingCartDao(DataSource dataSource) {
+    public MySqlShoppingCartDao(DataSource dataSource, ProductDao productDao){
         super(dataSource);
         this.dataSource = dataSource;
+        this.productDao = productDao;
     }
 
     @Override
-    public ShoppingCart getByUserId(int userId,int productId, int quantity) {
+    public ShoppingCart getByUserId(int userId) {
         ShoppingCart shoppingCart = new ShoppingCart();
 
         try(Connection connection = dataSource.getConnection()){
@@ -38,13 +41,13 @@ public class MySqlShoppingCartDao extends MySqlDaoBase implements ShoppingCartDa
 
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setInt(1, userId);
-            statement.setInt(2, productId);
-            statement.setInt(3, quantity);
+
             ResultSet row = statement.executeQuery();
 
 
             while(row.next()){
-                shoppingCart = mapToRowShoppingCart(row);
+                ShoppingCartItem shoppingCartItem = mapToItem(row);
+                   shoppingCart.add(shoppingCartItem);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -109,18 +112,19 @@ public class MySqlShoppingCartDao extends MySqlDaoBase implements ShoppingCartDa
 
 
 
-        private ShoppingCart mapToRowShoppingCart(ResultSet row) throws SQLException {
-            ShoppingCart shoppingCart = new ShoppingCart();
-            ShoppingCartItem item = new ShoppingCartItem();
-            Product product = new Product();
+        private ShoppingCartItem mapToItem(ResultSet row) throws SQLException {
 
-            product.setProductId(row.getInt("product_id"));
-            item.setProduct(product);
-            item.setQuantity(row.getInt("quantity"));
+            int productId = row.getInt("product_id");
+            int quantity = row.getInt("quantity");
+            Product product = productDao.getById(productId);
+            ShoppingCartItem item = new ShoppingCartItem(){{
+                setProduct(product);
+                setQuantity(quantity);
+            }
 
-            shoppingCart.add(item);
+            };
 
-            return shoppingCart;
+            return item;
         }
     }
 
