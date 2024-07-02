@@ -56,7 +56,7 @@ public class MySqlShoppingCartDao extends MySqlDaoBase implements ShoppingCartDa
     }
 
     @Override
-    public void addProductToCart(int userId, int productId) {
+    public ShoppingCart addProductToCart(int userId, int productId) {
         try(Connection connection = dataSource.getConnection()){
             String sql = """
                     INSERT INTO shopping_cart (user_id, product_id, quantity)
@@ -71,6 +71,7 @@ public class MySqlShoppingCartDao extends MySqlDaoBase implements ShoppingCartDa
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        return getByUserId(userId);
     }
 
     @Override
