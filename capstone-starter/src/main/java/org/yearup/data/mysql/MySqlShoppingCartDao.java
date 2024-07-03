@@ -95,7 +95,7 @@ public class MySqlShoppingCartDao extends MySqlDaoBase implements ShoppingCartDa
     }
 
     @Override
-    public void DeleteCart(int userId)
+    public ShoppingCart DeleteCart(int userId)
     {
        try(Connection connection = dataSource.getConnection()){
            String sql = """
@@ -109,6 +109,7 @@ public class MySqlShoppingCartDao extends MySqlDaoBase implements ShoppingCartDa
        } catch (SQLException e) {
            throw new RuntimeException(e);
        }
+       return getByUserId(userId);
     }
 
 

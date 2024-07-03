@@ -77,18 +77,39 @@ public class ShoppingCartController
     // https://localhost:8080/cart/products/15 (15 is the productId to be updated)
     // the BODY should be a ShoppingCartItem - quantity is the only value that will be updated
     @PutMapping("/cart/products/{productId}")
-    public void updateCart(@PathVariable int userId, ShoppingCartItem shoppingCartItem){
-        shoppingCartDao.updateProductInCart(userId, shoppingCartItem.getProductId(), shoppingCartItem.getQuantity());
+    public void updateCart(@PathVariable int productId, @RequestBody ShoppingCartItem item, Principal principal)
+    {
+        try{
+            String userName = principal.getName();
+            User user = userDao.getByUserName(userName);
+            int userId = user.getId();
+
+            shoppingCartDao.updateProductInCart(productId, item.getQuantity(), userId);
+        }catch (Exception e)
+        {
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Oops...Failed to update the products in your cart");
+        }
+
+
     }
 
 
     // add a DELETE method to clear all products from the current users cart
     // https://localhost:8080/cart
-    @DeleteMapping({"userId"})
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteCart(@PathVariable int userId)
+    @DeleteMapping("cart")
+    public ShoppingCart deleteCart(Principal principal)
     {
-        shoppingCartDao.DeleteCart(userId);
+        try {
+            String userName = principal.getName();
+            User user = userDao.getByUserName(userName);
+            int userId = user.getId();
+
+           return shoppingCartDao.DeleteCart(userId);
+
+        } catch (Exception e)
+        {
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
 }
