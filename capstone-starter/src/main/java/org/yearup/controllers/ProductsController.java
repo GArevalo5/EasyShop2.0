@@ -12,8 +12,8 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
-@RequestMapping("products")
 @CrossOrigin
+@RequestMapping("products")
 public class ProductsController
 {
     private ProductDao productDao;

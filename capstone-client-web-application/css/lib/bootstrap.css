@@ -246,11 +246,11 @@ h2, .h2 {
 }
 
 h3, .h3 {
-  font-size: calc(1.3rem + 0.6vw);
+  font-size: calc(1rem + 0.6vw);
 }
 @media (min-width: 1200px) {
   h3, .h3 {
-    font-size: 1.75rem;
+    font-size: 1.55rem;
   }
 }
 
@@ -2530,7 +2530,7 @@ textarea.form-control-lg {
   width: 1rem;
   height: 1rem;
   margin-top: -0.25rem;
-  background-color: #325d88;
+  background-color: #dd7825;
   border: 0;
   border-radius: 1rem;
   -webkit-transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -2546,7 +2546,7 @@ textarea.form-control-lg {
 }
 .form-range::-webkit-slider-thumb:active {
   /*background-color: #c2cedb;*/
-  background-color: #858d9a;
+  background-color: black;
 }
 .form-range::-webkit-slider-runnable-track {
   width: 100%;
@@ -2698,7 +2698,7 @@ textarea.form-control-lg {
   border-width: var(--bs-border-width) 0;
 }
 .form-floating > :disabled ~ label {
-  color: #8e8c84;
+  color: #f7f6f2;
 }
 .form-floating > :disabled ~ label::after {
   background-color: var(--bs-secondary-bg);
@@ -3055,10 +3055,10 @@ textarea.form-control-lg {
 
 .btn-primary {
   --bs-btn-color: #fff;
-  --bs-btn-bg: #325d88;
-  --bs-btn-border-color: #325d88;
+  --bs-btn-bg: #95d083; /* login pop up - register button */
+  --bs-btn-border-color: black;
   --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #2b4f74;
+  --bs-btn-hover-bg: #28e56d;
   --bs-btn-hover-border-color: #284a6d;
   --bs-btn-focus-shadow-rgb: 81, 117, 154;
   --bs-btn-active-color: #fff;
@@ -3072,10 +3072,10 @@ textarea.form-control-lg {
 
 .btn-secondary {
   --bs-btn-color: #fff;
-  --bs-btn-bg: #8e8c84;
-  --bs-btn-border-color: #8e8c84;
+  --bs-btn-bg: #e98cc0; /* login pop up - cancel button */
+  --bs-btn-border-color: black;
   --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #797770;
+  --bs-btn-hover-bg: #f709df;
   --bs-btn-hover-border-color: #72706a;
   --bs-btn-focus-shadow-rgb: 159, 157, 150;
   --bs-btn-active-color: #fff;
@@ -5482,26 +5482,28 @@ textarea.form-control-lg {
 }
 
 .modal {
+  color: #be5103; /* added this */
+  font-family: andale mono; /* added this */
   --bs-modal-zindex: 1055;
   --bs-modal-width: 500px;
   --bs-modal-padding: 1rem;
   --bs-modal-margin: 0.5rem;
   --bs-modal-color: ;
   --bs-modal-bg: var(--bs-body-bg);
-  --bs-modal-border-color: #dfd7ca;
+  --bs-modal-border-color: black;
   --bs-modal-border-width: var(--bs-border-width);
   --bs-modal-border-radius: var(--bs-border-radius-lg);
-  --bs-modal-box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  --bs-modal-box-shadow: 0 0.125rem 0.25rem rgba(162, 178, 163, 0.075);
   --bs-modal-inner-border-radius: calc(var(--bs-border-radius-lg) - (var(--bs-border-width)));
   --bs-modal-header-padding-x: 1rem;
   --bs-modal-header-padding-y: 1rem;
   --bs-modal-header-padding: 1rem 1rem;
-  --bs-modal-header-border-color: #dfd7ca;
+  --bs-modal-header-border-color: #cab9b980;
   --bs-modal-header-border-width: var(--bs-border-width);
   --bs-modal-title-line-height: 1.5;
   --bs-modal-footer-gap: 0.5rem;
   --bs-modal-footer-bg: ;
-  --bs-modal-footer-border-color: #dfd7ca;
+  --bs-modal-footer-border-color: #cab9b980;
   --bs-modal-footer-border-width: var(--bs-border-width);
   position: fixed;
   top: 0;
