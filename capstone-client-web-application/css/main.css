@@ -4,13 +4,14 @@ header
     justify-content: space-between;
     align-items: center;
 
-    height: 10vh;
+    height: 12vh;
 
     padding: 5px 15px;
     border-bottom: solid 1px #dd7825; 
     box-shadow: 5px 2px #fef0d2; 
     
-    background-color: #818589; 
+    background-color: #f7c085;
+    /* background-color: #818589; */
     /* background-color: #db9b1be1; */
     font-family: copperplate; 
     font-size: 23px; 
@@ -29,8 +30,19 @@ header
 
 .links a{                                 
     text-decoration: none;
-    color: rgb(244, 235, 235);
-    text-shadow: 3px 3px 7px rgba(9, 9, 9, 0.9);
+    color: rgb(0, 0, 0);
+    text-shadow: 3px 3px 7px rgba(246, 124, 9, 0.9);
+    background-color: #fbeee0; /* added */
+    padding: 0px 18px;
+    border: red;
+    border-radius: 31px;
+    width: 120px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: #060606 4px 4px 0 0;
 }
 
 header div{
@@ -43,7 +55,7 @@ header .links
 {
     gap: 20px;
     justify-content: flex-start;
-    align-items: flex-end;
+    align-items: center; /* used to be flex-end */
     padding-right: 20px;
 }
 
@@ -67,7 +79,7 @@ main
 {
     font-family: copperplate; 
     font-size: medium;
-    background-color: #fef0d2;
+    background-color: #fbeee0;
     display: grid;
     grid-template-columns: 350px auto;
     height: 87vh;
