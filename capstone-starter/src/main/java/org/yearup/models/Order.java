@@ -1,19 +1,23 @@
 package org.yearup.models;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Order {
     int orderId;
     int userId;
-    LocalDateTime date;
+    String date;
     String address;
     String city;
     String state;
     String zip;
     double shippingAmount;
-    ShoppingCart cart;
+    private List<OrderLineItem> lineItemList = new ArrayList<>();
 
-    public Order(int orderId, int userId, LocalDateTime date, String address, String city, String state, String zip, double shippingAmount, ShoppingCart cart) {
+    public Order(int orderId, int userId, String date, String address, String city, String state, String zip, double shippingAmount, ShoppingCart cart, List<OrderLineItem> lineItemList) {
         this.orderId = orderId;
         this.userId = userId;
         this.date = date;
@@ -22,10 +26,21 @@ public class Order {
         this.state = state;
         this.zip = zip;
         this.shippingAmount = shippingAmount;
-        this.cart = cart;
+        this.lineItemList = lineItemList;
     }
 
     public Order() {
+        LocalDate currentDate = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ISO_DATE;
+        this.date = currentDate.format(formatter);
+    }
+
+    public List<OrderLineItem> getLineItemList() {
+        return lineItemList;
+    }
+
+    public void setLineItemList(List<OrderLineItem> lineItemList) {
+        this.lineItemList = lineItemList;
     }
 
     public int getOrderId() {
@@ -44,11 +59,11 @@ public class Order {
         this.userId = userId;
     }
 
-    public LocalDateTime getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(LocalDateTime date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

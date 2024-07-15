@@ -5,5 +5,5 @@ import org.yearup.models.ShoppingCart;
 import java.time.LocalDateTime;
 
 public interface OrderDao {
-    Order addorder(int orderId, int userId, ShoppingCart cart);
+    Order addorder(int userId);
 }
