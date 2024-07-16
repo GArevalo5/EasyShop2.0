@@ -106,4 +106,8 @@ public class Order {
     public void setShippingAmount(double shippingAmount) {
         this.shippingAmount = shippingAmount;
     }
+
+    public void addLineItem(OrderLineItem lineItem) {
+        lineItemList.add(lineItem);
+    }
 }
