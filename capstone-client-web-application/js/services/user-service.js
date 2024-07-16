@@ -144,7 +144,6 @@ class UserService {
         this.currentUser = {};
 
         this.setHeaderLogin();
-
         productService.enableButtons();
     }
 
