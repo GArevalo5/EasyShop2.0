@@ -50,7 +50,6 @@ public class MySqlOrderDao extends MySqlDaoBase implements OrderDao {
             String sql = """
                     INSERT INTO orders (user_id, date, address, city, state, zip, shipping_amount)
                     VALUES (?, ?, ?, ?, ?, ?, ?);
-                               
                     """;
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setInt(1, order.getUserId());

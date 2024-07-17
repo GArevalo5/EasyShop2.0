@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 import org.yearup.data.OrderDao;
@@ -27,12 +28,14 @@ public class OrdersController {
         this.userDao = userDao;
     }
 
+    @PostMapping("/orders")
     public Order addOrder (Principal principal)
     {
         try{
             String userName  = principal.getName();
             User user = userDao.getByUserName(userName);
             int userId = user.getId();
+
             return orderDao.addorder(userId);
         }
         catch (Exception e)
