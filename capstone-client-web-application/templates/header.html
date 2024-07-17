@@ -6,12 +6,12 @@
     </div>
     <a href="#" onclick="loadHome()">Home</a>
     <a href="#" onclick="editProfile()">Profile</a>
-    <a href="#" onclick="showCart()">View Cart</a>
+    <a href="#" onclick="showCart()">&nbsp;View&nbsp;Cart&nbsp;</a> <!-- the code in the middle of view and cart is to keep the words in one line -->
 
 </div>
 
 <div>
-    Welcome&nbsp;<span style="font-weight: bold">{{username}}</span>&nbsp;|&nbsp;<a href="#" onclick="userService.logout();return false;">logout</a>
+    <span style="font-family: futura; font-weight: bold; color: #fff; text-transform: uppercase;">Welcome&nbsp;<span style="font-weight: bold;">{{username}}</span></span>&nbsp;|&nbsp;<a href="#" class="logout-link" onclick="userService.logout();return false;" style="text-decoration: none;">Logout</a>
     <div class="cart" onclick="showCart()">
         <i class="fa-solid fa-cart-shopping"></i>
         <div id="cart-items">0</div>

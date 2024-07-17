@@ -7,48 +7,82 @@ header
     height: 12vh;
 
     padding: 5px 15px;
-    border-bottom: solid 1px #dd7825; 
+    border-bottom: solid 2px #f7c085;; 
     box-shadow: 5px 2px #fef0d2; 
     
     background-color: #f7c085;
-    /* background-color: #818589; */
-    /* background-color: #db9b1be1; */
-    font-family: copperplate; 
+    font-family: futura; 
     font-size: 23px; 
 }
 
-.links  div img
+.links div img
 {
     height: 100%;
+    transition: none;
+    transform: none;
+}
+
+.links div img:hover {
+    transform: none;
+    box-shadow: none;
 }
 
 .links :hover { /* added this to change color when hover over links */
-    color: #030303;
-    transform: scale(1.2);
-    text-shadow: 4px 4px 9px rgba(250, 134, 1, 0.7);
+    color: #f68c0a;
+    transform: scale(1.1);
+    box-shadow: 8px 8px 0 0 #060606;
+    background-color: #fff;
 }
 
 .links a{                                 
     text-decoration: none;
     color: rgb(0, 0, 0);
-    text-shadow: 3px 3px 7px rgba(246, 124, 9, 0.9);
+    text-shadow: 1px 1px 2px rgba(97, 94, 91, 0.78);
     background-color: #fbeee0; /* added */
     padding: 0px 18px;
-    border: red;
-    border-radius: 31px;
+    border: rgb(14, 14, 14);
+    border-radius: 22px;
     width: 120px;
     height: 40px;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: #060606 4px 4px 0 0;
+    box-shadow: #060606 6px 6px 0 0; 
+    outline: 2px solid rgb(4, 4, 4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 header div{
     height: 100%;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
+    color: black;
+}
+
+.logout-link {
+    color: black;
+    text-shadow: 1px 1px 2px rgba(97, 94, 91, 0.78);
+    background-color: #fbeee0; /* added */
+    padding: 0px 18px;
+    border: rgb(14, 14, 14);
+    border-radius: 22px;
+    width: 120px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: #060606 6px 6px 0 0; 
+    outline: 2px solid rgb(4, 4, 4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logout-link:hover {
+    color: #f68c0a;
+    transform: scale(1.1);
+    box-shadow: 8px 8px 0 0 #060606;
+    background-color: #fff;
 }
 
 header .links
@@ -65,6 +99,8 @@ header .cart
     padding-left: 10px;
     padding-right: 10px;
     cursor: pointer;
+    align-items: center;
+    color: black;
 }
 
 header .cart #cart-items
@@ -73,13 +109,14 @@ header .cart #cart-items
     height: 50%;
     align-items: start;
     padding-left: 5px;
+    color: black;
 }
 
 main
 {
-    font-family: copperplate; 
+    font-family: futura; 
     font-size: medium;
-    background-color: #fbeee0;
+    background-color: #f7c085;
     display: grid;
     grid-template-columns: 350px auto;
     height: 87vh;
@@ -87,9 +124,10 @@ main
 
 main > .filter-box
 {
-    color: rgb(39, 39, 37);
+    color: black;
     width: 350px;
     padding: 15px;
+    font-family: futura;
 }
 
 main #min-price .slider-selection {
@@ -156,11 +194,21 @@ main > .content-form .cart-item
 
     justify-content: space-between;
     /*width: 30%;*/
-    border: solid 1px #ccc;
+    border: solid 2px black;
+    background-color: #fbeee0;
     padding: 5px;
-    border-radius: 5px;
+    border-radius: 10px;
     margin: 5px;
 }
+
+.product:hover {
+    color: #f68c0a;
+    transform: scale(1);
+    box-shadow: 4px 4px 0 0 #060606;
+    background-color: #fff;
+    font-family: monospace;
+}
+
 .product  .photo
 {
     display: flex;
@@ -177,8 +225,39 @@ main > .content-form .cart-item
 .product .price
 {
     font-weight: 900;
-    color: #924a24;
+    color: #7c4242;
 }
+
+.btn {
+    margin: 10px;
+    padding: 15px 30px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 10px;
+    display: block;
+    border: 0px;
+    font-weight: 700;
+    box-shadow: 0px 0px 14px -7px #f09819;
+    background-image: linear-gradient(45deg, #FF512F 0%, #F09819  51%, #FF512F  100%);
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+  
+  .btn:hover {
+    background-position: right center;
+    /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .btn:active {
+    transform: scale(0.95);
+  }
 
 .modal-body img
 {
@@ -237,3 +316,9 @@ main > .content-form .cart-item
     margin-bottom: 2px !important;
 }
 
+h3 {
+    color: #fff;
+    font-family: futura;
+}
+
+/* Start https://www.cursors-4u.com */ * {cursor: url(https://cur.cursors-4u.net/cursors/cur-11/cur1054.cur), auto !important;} /* End https://www.cursors-4u.com */
