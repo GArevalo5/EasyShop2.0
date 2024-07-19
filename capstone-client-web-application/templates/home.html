@@ -1,8 +1,8 @@
 <div class="filter-box">
-    <h3>Filter</h3>
+    <h3 style="font-size: large; font-family: futura; font-weight: bold; color: #fff; text-transform: uppercase; text-shadow: 2px 2px 4px rgba(36, 34, 34, 0.896);">Filter</h3>
 
     <div class="form-floating mb-3">
-        <select name="" id="category-select" class="form-select"
+        <select style="color: rgb(104, 102, 97);" name="" id="category-select" class="form-select"
             onchange="setCategory(this)"
         >
             <option value="0">Show All</option>
@@ -10,16 +10,16 @@
         <label for="category-select">Category</label>
     </div>
     <div>
-        <label for="min-price" class="form-label">Minimum Price: 💲 <span id="min-price-display">0</span></label>
+        <label for="min-price" class="form-label" style="font-family: futura; color: #fff; text-transform: uppercase; text-shadow: 2px 2px 4px rgba(36, 34, 34, 0.896);">Minimum Price: 💲 <span id="min-price-display">0</span></label>
         <input type="range" class="form-range" id="min-price" min="0" max="1500" value="0" onchange="setMinPrice(this)">
     </div>
     <div>
-        <label for="max-price" class="form-label">Maximum Price: 💲 <span id="max-price-display">1500</span></label>
+        <label for="max-price" class="form-label " style="font-family: futura; color: #fff; text-transform: uppercase; text-shadow: 2px 2px 4px rgba(36, 34, 34, 0.896);">Maximum Price: 💲 <span id="max-price-display">1500</span></label>
         <input type="range" class="form-range" id="max-price" min="0" max="1500" value="1500" onchange="setMaxPrice(this)">
     </div>
 
     <div class="form-floating mb-3">
-        <select name="" id="color-select" class="form-select"
+        <select style="color:rgb(104, 102, 97)" name="" id="color-select" class="form-select"
                 onchange="setColor(this)"
         >
             <option value="">Show All</option>

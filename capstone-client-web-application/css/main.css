@@ -7,10 +7,10 @@ header
     height: 12vh;
 
     padding: 5px 15px;
-    border-bottom: solid 2px #f7c085;; 
+    border-bottom: solid 2px #a2a09f; 
     box-shadow: 5px 2px #fef0d2; 
     
-    background-color: #f7c085;
+    background-color: #bcb9b7;
     font-family: futura; 
     font-size: 23px; 
 }
@@ -119,7 +119,7 @@ main
     background-color: #f7c085;
     display: grid;
     grid-template-columns: 350px auto;
-    height: 87vh;
+    height: 100%;
 }
 
 main > .filter-box
@@ -154,6 +154,7 @@ main > .content-form .cart-header,
 main > .content-form .cart-item
 {
     border-bottom: solid 1px #ccc;
+
 }
 
 .content-form .photo
@@ -202,11 +203,13 @@ main > .content-form .cart-item
 }
 
 .product:hover {
-    color: #f68c0a;
+    color: #2c7ec0;
     transform: scale(1);
-    box-shadow: 4px 4px 0 0 #060606;
+    box-shadow: 4px 4px 0 0 #040404;
     background-color: #fff;
-    font-family: monospace;
+    font-family: futura;
+    font-weight: bold;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .product  .photo
@@ -222,10 +225,17 @@ main > .content-form .cart-item
     border: solid 1px #ccc;
 }
 
-.product .price
+.product .price {
+    color: #763838;
+    font-weight: 700;
+}
+
+.product:hover .price
 {
-    font-weight: 900;
-    color: #7c4242;
+    font-weight: 700;
+    color: #eb1010;
+    text-shadow: 2px 2px 4px rgba(36, 34, 34, 0.302);
+    transform: scale(1.1);
 }
 
 .btn {
@@ -319,6 +329,23 @@ main > .content-form .cart-item
 h3 {
     color: #fff;
     font-family: futura;
+}
+
+.cart-header {
+    font-family: futura; 
+    font-weight: bold; 
+    color: #fff; 
+    text-transform: uppercase; 
+    text-shadow: 2px 2px 4px rgba(36, 34, 34, 0.896);
+}
+
+.cart-item {
+    background-color: rgba(132, 119, 119, 0.382);
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(36, 34, 34, 0.896);
+    margin-bottom: 3px;
+    padding: 10px;
+    border-radius: 4px;
 }
 
 /* Start https://www.cursors-4u.com */ * {cursor: url(https://cur.cursors-4u.net/cursors/cur-11/cur1054.cur), auto !important;} /* End https://www.cursors-4u.com */

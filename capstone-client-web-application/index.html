@@ -27,6 +27,7 @@
 
 
     <script src="js/application.js"></script>
+
 </head>
 <body>
 
@@ -35,6 +36,45 @@
     <section id="errors"></section>
 
     <section id="login"></section>
+
+    <style>
+        .banner-area {
+            position: relative;
+            background-image: url('images/IMG_8274.JPG');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 50px;
+            height: 200px;
+            text-align: center;
+            font-family: futura; 
+            font-weight: bold; 
+            color: #fff; 
+            text-transform: uppercase; 
+            text-shadow: 5px 5px 7px rgba(9, 9, 9, 0.913);
+        }
+
+        .banner-area::before {
+            content: '';
+            position:absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right,  rgba(0, 0, 0, 0.322), rgba(0, 0, 0, 0) 70%),
+                        linear-gradient(to bottom, rgba(0, 0, 0, 0.334), rgba(0, 0, 0, 0) 70%);
+            z-index: 0;
+        }
+
+        .banner-area h2 {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+
+    <div class="banner-area">
+        <h2>Treat Your Self</h2>
+    </div>
 
     <main id="main"></main>
 
